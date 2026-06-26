@@ -7,13 +7,13 @@ This repository provides a Fortran implementation for generating stochastic brid
 - **Processes with continuous states**: Processes in continuous space and time described by a system of stochastic differential equations of the form:
 
 
-  $$
-  \dot{x} = F_x(x,y) + \sqrt{D}\, G_x(x,y)\, \xi_x(t)
-  $$
+$$
+\dot{x} = F_x(x,y) + \sqrt{D}\, G_x(x,y)\, \xi_x(t)
+$$
 
-  $$
-  \dot{y} = F_y(x,y) + \sqrt{D}\, G_y(x,y)\, \xi_y(t)
-  $$
+$$
+\dot{y} = F_y(x,y) + \sqrt{D}\, G_y(x,y)\, \xi_y(t)
+$$
 
   where $\xi_x(t)$ and $\xi_y(t)$ are independent Gaussian white noise variables with zero mean and correlations $\langle \xi_i(t)\xi_j(t')\rangle = \delta_{i,j}\delta(t-t')$. The equations are interpreted in the Itô sense.
 
