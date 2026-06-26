@@ -147,15 +147,15 @@ program Bridges2D_Continuous
 					! Proposal accepted: (x(t),y(t)) = (x, y)
 					!----------------------------------------------
 					counter = counter + 1
-					t = t - dt
+					t = tdt - dt
+					x_bridge(counter) = x
+					y_bridge(counter) = y
+					t_bridge(counter) = t						
 					xtdt = x
 					ytdt = y
 					Pxtdtytdt = Pxy
-					tdt = t
-					x_bridge(counter) = x
-					y_bridge(counter) = y
-					t_bridge(counter) = t	
-
+					tdt = t 
+					
 					!----------------------------------------------
 					! Check whether the trajectory has left the neighbourhood of the target state or entered the neighbourhood of the initial state
 					!----------------------------------------------
