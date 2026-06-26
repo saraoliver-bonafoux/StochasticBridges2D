@@ -1,6 +1,10 @@
 # Generation of stochastic bridges for 2D stochastic processes
 
-This repository provides a Fortran implementation for generating stochastic bridges of a two-dimensional stochastic process of the form:
+This repository provides a Fortran implementation for generating stochastic bridges of two-dimensional stochastic processes. Due to technical differences in implementation, separate codes are provided for processes with discrete and continuous state spaces. Specifically, the codes are applicable to: 
+
+- **Processes with discrete states**: Markov jump processes in continuous time and with discrete states governed by transition rates.
+
+- **Processes with continuous states**: Processes in continuous space and time described by a system of stochastic differential equations of the form:
 
 $\dot{x} = F_x(x,y) + \sqrt{D} G_x(x,y) \xi_x(t),$
 
@@ -10,19 +14,24 @@ where $\xi_x(t)$ and $\xi_y(t)$ are independent Gaussian white noise variables w
 
 Stochastic bridges are realizations of the process conditioned to start at $(x(t=0), y(t=0)) = (x_0, y_0)$ and end at $(x(t=T), y(t=T)) = (x_T, y_T)$.
 
-The code `Bridges2D.f90` allows the generation of stochastic bridges using the backtracking method proposed in *Sampling rare trajectories using stochastic bridges*, where the theoretical derivation is presented in detail only for one-dimensional systems. Its extension to two dimensions is outlined in the Appendices of *The nature of stochastic fluctuations shapes transition dynamics in cell-type switching*. The code `dranxor.f90` implements the random number generator used in the simulations.
+The codes `Bridges2D_Discrete.f90` and `Bridges2D_Continuous.f90` allow the generation of stochastic bridges for processes with discrete and continuous state spaces, respectively. Bridges are generated using the backtracking method proposed in *Sampling rare trajectories using stochastic bridges*, where the theoretical derivation is presented in detail only for one-dimensional systems. Its extension to two dimensions is outlined in the Appendices of *The nature of stochastic fluctuations shapes transition dynamics in cell-type switching*. The code `dranxor.f90` implements the random number generator used in the simulations.
 
-The implementation is designed for reproducibility and can be readily adapted to a broad class of two-dimensional stochastic processes.
+The implementation is designed for reproducibility and can be readily adapted to a broad class of two-dimensional stochastic processes. Extension to higher dimensions is also possible.
 
 ## Repository Structure
 
 The repository contains the following files:
 
 ```text
-Bridges2D.f90     	  # Stochastic bridge generator     
-dranxor.f90			  # Random number generator
-PQS_geneticswitch.txt # Quasi-stationary distribution for the genetic togle switch model under additive noise with intensity D = 0.0025.
+Discrete/
+├── Bridges2D_Discrete.f90         # Stochastic bridge generator for discrete-state processes  
+└── PQS_geneticswitch_Discrete.txt # Quasi-stationary distribution for the reaction-based genetic toggle switch model for a system size N = 100
+Continuous/
+├── Bridges2D.f90     	  # Stochastic bridge generator for continuous-state processes 
+└── PQS_geneticswitch.txt # Quasi-stationary distribution for the genetic toggle switch model under additive noise with intensity D = 0.0025
+dranxor.f90 # Random number generator
 ```
+
 
 ## Compilation
 
@@ -32,7 +41,7 @@ All codes were compiled and tested with Intel Fortran Compiler:
 
 The following compilation command was used: 
 
-  ifort Bridges2D.f90 dranxor.f90 -O3 -no-prec-div -fp-model fast=2 -march=sandybridge -mtune=core-avx2 -o program_name.x
+  ifort program_name.f90 dranxor.f90 -O3 -no-prec-div -fp-model fast=2 -march=sandybridge -mtune=core-avx2 -o program_name.x
   
 ## How to cite
 
