@@ -1,14 +1,14 @@
 # Generation of stochastic bridges for 2D stochastic processes
 
-This repository provides a Fortran implementation for generating stochastic bridges of two-dimensional stochastic processes. Due to technical differences in implementation, separate codes are provided for processes with discrete and continuous state spaces. Specifically, the codes are applicable to: 
+This repository provides a Fortran implementation for generating stochastic bridges for two-dimensional stochastic processes. Due to technical differences in implementation, separate codes are provided for processes with discrete and continuous state spaces. Specifically, the codes are applicable to: 
 
 - **Processes with discrete states**: Markov jump processes in continuous time and with discrete states governed by transition rates.
 
 - **Processes with continuous states**: Processes in continuous space and time described by a system of stochastic differential equations of the form:
 
-  $\dot{x} = F_x(x,y) + \sqrt{D}\, G_x(x,y)\, \xi_x(t)$
+  $\dot{x} = F_x(x,y) + \sqrt{D} G_x(x,y) \xi_x(t)$
 
-  $\dot{y} = F_y(x,y) + \sqrt{D}\, G_y(x,y)\, \xi_y(t)$
+  $\dot{y} = F_y(x,y) + \sqrt{D} G_y(x,y) \xi_y(t)$
 
   where $\xi_x(t)$ and $\xi_y(t)$ are independent Gaussian white noise variables with zero mean and correlations $\langle \xi_i(t)\xi_j(t')\rangle = \delta_{i,j}\delta(t-t')$. The equations are interpreted in the Itô sense.
 
@@ -27,8 +27,8 @@ Discrete/
 ├── Bridges2D_Discrete.f90         # Stochastic bridge generator for discrete-state processes  
 └── PQS_geneticswitch_Discrete.txt # Quasi-stationary distribution for the reaction-based genetic toggle switch model for a system size N = 100
 Continuous/
-├── Bridges2D.f90     	  # Stochastic bridge generator for continuous-state processes 
-└── PQS_geneticswitch.txt # Quasi-stationary distribution for the genetic toggle switch model under additive noise with intensity D = 0.0025
+├── Bridges2D_Continuous.f90     	  # Stochastic bridge generator for continuous-state processes 
+└── PQS_geneticswitch_Continuous.txt  # Quasi-stationary distribution for the genetic toggle switch model under additive noise with intensity D = 0.0025
 dranxor.f90 # Random number generator
 ```
 
