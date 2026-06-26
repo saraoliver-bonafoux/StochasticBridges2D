@@ -28,7 +28,7 @@ Discrete/
 └── PQS_geneticswitch_Discrete.txt # Quasi-stationary distribution for the reaction-based genetic toggle switch model for a system size N = 100
 Continuous/
 ├── Bridges2D_Continuous.f90     	  # Stochastic bridge generator for continuous-state processes 
-└── PQS_geneticswitch_Continuous.txt  # Quasi-stationary distribution for the genetic toggle switch model under additive noise with intensity D = 0.0025
+└── PQS_geneticswitch_Continuous.txt  # Quasi-stationary distribution for the genetic toggle switch model under demographic noise with intensity D = 0.0025
 dranxor.f90 # Random number generator
 ```
 
