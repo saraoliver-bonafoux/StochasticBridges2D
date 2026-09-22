@@ -14,13 +14,11 @@ A stochastic bridge is a realization of the process conditioned to start at $(x(
 
 The code `Bridges2D_Continuous.f90` generates stochastic bridges using the backtracking method introduced in&nbsp;[1]. The theoretical derivation was originally developed for one-dimensional systems, while its extension to two dimensions is outlined in the Appendices of [2].
 
-The random number generator used by the simulations is implemented in `dranxor.f90`.
+The random number generator used in the simulations is implemented in `dranxor.f90`.
 
 ### Example: genetic toggle switch
 
-The repository includes an example based on the genetic toggle switch model studied in [2]. The current parameter choice is designed to generate differentiation bridges, connecting the pluripotent state at $t = 0$ to a differentiated state at $t = T$, under demographic noise with intensity $D = 0.025$.
-
-The corresponding quasi-stationary distribution (QSD) of the metastable pluripotent state is also provided. 
+The repository includes an example based on the genetic toggle switch model studied in [2]. The current parameter choice is designed to generate differentiation bridges, connecting the pluripotent state at $t = 0$ to a differentiated state at $t = T$, under demographic noise with intensity $D = 0.025$. The corresponding quasi-stationary distribution (QSD) of the metastable pluripotent state is also provided. 
 
 The implementation is intended to facilitate reproducibility, but the code can also be readily adapted to other two-dimensional stochastic processes. Extension to higher dimensions is also possible.
 
@@ -29,7 +27,7 @@ The implementation is intended to facilitate reproducibility, but the code can a
 The repository contains the following files:
 
 ```text
-Bridges2D_Continuous.f90     	  # Stochastic bridge generator for continuous-state processes 
+Bridges2D_Continuous.f90     	  # Stochastic bridge generator for 2D continuous processes 
 QSD_geneticswitch_Continuous.txt  # QSD of the genetic toggle switch model under demographic noise
 dranxor.f90                       # Random number generator
 ```
