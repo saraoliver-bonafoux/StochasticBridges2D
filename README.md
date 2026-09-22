@@ -6,19 +6,19 @@ $\dot{x} = F_x(x,y) + \sqrt{D} G_x(x,y) \xi_x(t)$
 
 $\dot{y} = F_y(x,y) + \sqrt{D} G_y(x,y) \xi_y(t)$
 
-where $\xi_x(t)$ and $\xi_y(t)$ are independent Gaussian white noise variables with zero mean and correlations $\langle \xi_i(t)\xi_j(t')\rangle = \delta_{i,j}\delta(t-t')$. The equations are interpreted in the Itô sense.
+where $\xi_x(t)$ and $\xi_y(t)$ are independent Gaussian white noise variables with zero mean and correlations $\langle \xi_i(t)\xi_j(t')\rangle = \delta_{i,j}\delta(t-t')$. The parameter $D > 0$ sets the noise intensity. The equations are interpreted in the Itô sense.
 
 A stochastic bridge is a realization of the process conditioned to start at $(x(t=0), y(t=0)) = (x_0, y_0)$ and end at $(x(t=T), y(t=T)) = (x_T, y_T)$.
 
 ## Method
 
-The code `Bridges2D_Continuous.f90` generates stochastic bridges using the backtracking method introduced in [1]. The theoretical derivation was originally developed for one-dimensional systems, while its extension to two dimensions is outlined in the Appendices of [2].
+The code `Bridges2D_Continuous.f90` generates stochastic bridges using the backtracking method introduced in&nbsp;[1]. The theoretical derivation was originally developed for one-dimensional systems, while its extension to two dimensions is outlined in the Appendices of [2].
 
 The random number generator used by the simulations is implemented in `dranxor.f90`.
 
 ### Example: genetic toggle switch
 
-The repository includes an example based on the genetic toggle-switch model studied in [2]. The current parameter choice is designed to generate dedifferentiation bridges, connecting the pluripotent state at $t = 0$ to a differentiated state at $t = T$, under demographic noise with intensity $D = 0.025$.
+The repository includes an example based on the genetic toggle switch model studied in [2]. The current parameter choice is designed to generate differentiation bridges, connecting the pluripotent state at $t = 0$ to a differentiated state at $t = T$, under demographic noise with intensity $D = 0.025$.
 
 The corresponding quasi-stationary distribution (QSD) of the metastable pluripotent state is also provided. 
 
@@ -30,7 +30,7 @@ The repository contains the following files:
 
 ```text
 Bridges2D_Continuous.f90     	  # Stochastic bridge generator for continuous-state processes 
-QSD_geneticswitch_Continuous.txt  # QSD of the genetic toggle-switch model under demographic noise
+QSD_geneticswitch_Continuous.txt  # QSD of the genetic toggle switch model under demographic noise
 dranxor.f90                       # Random number generator
 ```
 
