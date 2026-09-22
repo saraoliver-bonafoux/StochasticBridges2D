@@ -32,7 +32,7 @@ QSD_geneticswitch_Continuous.txt  # QSD of the genetic toggle switch model under
 dranxor.f90                       # Random number generator
 ```
 
-The file `PQS_geneticswitch_Continuous.txt` contains the QSD of the metastable pluripotent state, centered around $(x_0, y_0) = (1, 1)$, for demographic noise with intensity $D = 0.025$.
+The file `QSD_geneticswitch_Continuous.txt` contains the QSD of the metastable pluripotent state, centered around $(x_0, y_0) = (1, 1)$, for demographic noise with intensity $D = 0.025$.
 
 ## Compilation
 
